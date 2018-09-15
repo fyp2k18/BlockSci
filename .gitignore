@@ -10,3 +10,5 @@ Notebooks/blocksci
 include/blocksci/external
 python/blocksci/pybind11
 *.egg-info
+.idea/
+cmake-build-debug/
