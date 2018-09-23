@@ -13,45 +13,24 @@
 
 int main(int argc, const char * argv[]) {
     blocksci::Blockchain chain("/root/bitcoin-data");
-    //std::cout<<"test";
-
-    //auto root = chain.tx_with_hash('e12670b7efc7b6076df4fec69c7ff13f4c49531304b5fa909f3097be4a4ff3f1');
-    auto root = blocksci::Transaction("e12670b7efc7b6076df4fec69c7ff13f4c49531304b5fa909f3097be4a4ff3f1",chain.getAccess());
+    auto root = blocksci::Transaction("ce354852eb449f07ee5c2ff8c781a8ad76ec0cae9adf804fb7ae089d3faffed6",chain.getAccess());
     auto block = chain[root.blockHeight];
-  ///  for (&tx: block.getTransact)
-    //auto tx = block[1];
-    //auto output = tx.outputs()[0];
-    //auto val = tx.outputs()[0].getValue();
-    //std::cout << "Output: " << output << std::endl;
-    //std::cout << "Output: " << val << std::endl;
-    //auto tainted = blocksci::heuristics::getPoisonTainted(output,val);
-    //std::cout << "first out:    "<<std::get<0>(tainted[0]) << ",  second :   " << std::get<1>(tainted[0]);
-    //std::cout << "Taints: " << tainted << std::endl;
-    //for(int i=0;i< tainted.size();i++){
-      //std::cout << "Taints: " << tainted[0]<< std::endl;
+    std::cout << "block5:  "<< block.at(5) << std::endl;
+    //std::cout << "block6:  "<< block.at(6).outputs() << std::endl;
+    //std::cout << "block7:  "<< block.at(7).outputs() << std::endl;
+    //std::cout << "block8:  "<< block.at(8).outputs() << std::endl;
+    /*auto tx = block[0];
+    auto output = tx.outputs()[0];
+    auto value = output.getValue();
+    std::cout << "Transaction:    "<< output << std::endl;
+    std::cout << "Transaction:    "<< value<< std::endl;
 
-    //}
+    auto tainted = blocksci::heuristics::getPoisonTainted(output,value);
+    //std::cout << "Transaction:    "<< tainted << std::endl;
+    std::cout << "first out:    "<<std::get<0>(tainted[0]) << ",  second :   " << std::get<1>(tainted[0]);
+    //std::co
 
-
-
-
-
-    //RANGES_FOR (auto &taints, tainted){
-      //  std::cout << "Taints: " << taints << std::endl;
-
-
-    //}
-    //std::cout << "Taints: " << taints << std::endl;
-    //auto test2 = blocksci::outputs(chain[test]);
-   // auto c = root.outputs()[0].getAddress();
-    //std::cout << "Output: " << root.outputs()[0] << std::endl;
-
-    //auto test = root.blocksci::Transaction.getTransactions();
-    //for (auto &tx : test2.numTxes){
-      //std::cout<<root.outputs()[0];
-    //}
-
-
+*/
 
 
 
