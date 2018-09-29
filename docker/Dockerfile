@@ -7,7 +7,8 @@ RUN apt-get update && \
     add-apt-repository -y ppa:ubuntu-toolchain-r/test && \
     apt-get update && \
     apt-get install -y build-essential cmake libtool autoconf libboost-all-dev libboost-filesystem-dev libboost-iostreams-dev libboost-serialization-dev libboost-thread-dev libboost-test-dev libsqlite3-dev libssl-dev autogen libcurl4-openssl-dev libjsoncpp-dev libjsonrpccpp-dev libjsonrpccpp-tools libsnappy-dev zlib1g-dev libbz2-dev liblz4-dev libzstd-dev libjemalloc-dev libsparsehash-dev gcc-7 g++-7 python3-dev python3-pip git wget curl liblmdb-dev libsparsehash-dev libargtable2-dev libmicrohttpd-dev libhiredis-dev catch libgflags-dev && \
-    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7
+    update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 60 --slave /usr/bin/g++ g++ /usr/bin/g++-7 \
+    apt-get install libspdlog-dev
 
 RUN cd /root && \
     wget https://cmake.org/files/v3.10/cmake-3.10.0.tar.gz && \
