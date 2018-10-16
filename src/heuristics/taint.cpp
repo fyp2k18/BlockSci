@@ -9,6 +9,8 @@
 #include <blocksci/address/address.hpp>
 #include <blocksci/chain/algorithms.hpp>
 
+
+
 #include <map>
 #include <unordered_map>
 
@@ -18,11 +20,15 @@ namespace blocksci { namespace heuristics {
         std::map<uint32_t, std::vector<std::pair<Inout, int64_t>>> taintedTxesToCheck;
         std::vector<std::pair<Output, int64_t>> taintedOutputs;
         auto processOutput = [&](const Output &spendingOut, int64_t newTaintedValue) {
-            if (newTaintedValue > 0) {
-                auto index = spendingOut.getSpendingTxIndex();
+            if (newTaintedValue > 0 && (spendingOut.getType() == AddressType::Enum::PUBKEYHASH)) {
+           //if (newTaintedValue > 0 ) {
+
+                    auto index = spendingOut.getSpendingTxIndex();
                 if (index) {
                     auto &txData = taintedTxesToCheck[*index];
                     auto address = spendingOut.getAddress();
+
+
                     auto newTaintedInput = Inout{spendingOut.pointer.txNum, address.scriptNum, address.type, spendingOut.getValue()};
                     txData.emplace_back(newTaintedInput, newTaintedValue);
                 } else {
